@@ -1,3 +1,5 @@
+setInterval(() => {console.log(123)}, 5000)
+
 self.addEventListener('install', event => {
     console.log('install')
     event.waitUntil(
