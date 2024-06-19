@@ -1,4 +1,5 @@
 self.addEventListener('install', event => {
+    console.log('install')
     event.waitUntil(
         caches.open('v1').then(cache => {
             return cache.addAll([
@@ -11,6 +12,7 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('push', event => {
+    console.log('push')
     const data = event.data.json();
     const title = data.title;
     const message = data.message;
@@ -25,6 +27,7 @@ self.addEventListener('push', event => {
 });
 
 self.addEventListener('notificationclick', event => {
+    console.log('notificationclick')
     event.notification.close();
     event.waitUntil(
         clients.openWindow('https://example.com')
@@ -32,6 +35,7 @@ self.addEventListener('notificationclick', event => {
 });
 
 self.addEventListener('activate', event => {
+    console.log('activate')
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
@@ -47,6 +51,7 @@ self.addEventListener('activate', event => {
 
 // Subscribe to ntfy topic
 self.addEventListener('activate', async event => {
+    console.log('activate ntfy')
     const registration = await navigator.serviceWorker.getRegistration();
     const subscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
