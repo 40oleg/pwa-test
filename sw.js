@@ -54,7 +54,7 @@ self.addEventListener('activate', async event => {
     });
 
     // Send subscription to your server
-    fetch('/subscribe', {
+    fetch('http://192.168.1.194:8092', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
