@@ -70,7 +70,7 @@ self.addEventListener('activate', async event => {
                 auth: subscription.getKey('auth')
             }
         })
-    });
+    }).then(data => data.json()).then(data => console.log(data)).catch(err => console.log(err));
 });
 
 function urlBase64ToUint8Array(base64String) {
