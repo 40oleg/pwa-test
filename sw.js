@@ -37,7 +37,6 @@ self.addEventListener('notificationclick', event => {
 // Subscribe to ntfy topic
 self.addEventListener('activate', async event => {
     console.log('activate')
-    setInterval(() => {console.log('activate')}, 5000)
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
