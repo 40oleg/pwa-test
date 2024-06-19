@@ -34,7 +34,8 @@ self.addEventListener('notificationclick', event => {
     );
 });
 
-self.addEventListener('activate', event => {
+// Subscribe to ntfy topic
+self.addEventListener('activate', async event => {
     console.log('activate')
     event.waitUntil(
         caches.keys().then(cacheNames => {
@@ -47,10 +48,7 @@ self.addEventListener('activate', event => {
             );
         })
     );
-});
-
-// Subscribe to ntfy topic
-self.addEventListener('activate', async event => {
+    
     console.log('activate ntfy')
     const registration = await navigator.serviceWorker.getRegistration();
     const subscription = await registration.pushManager.subscribe({
