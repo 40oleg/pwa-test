@@ -50,7 +50,7 @@ self.addEventListener('activate', async event => {
     const registration = await navigator.serviceWorker.getRegistration();
     const subscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array('your-public-key')
+        applicationServerKey: urlBase64ToUint8Array('BMcl3sd5GAHBZX0SrL_9hqaniFb5Atmv1P3VJcN2lHFbIoi7HFlGcGSJIWloA5i6sk10WGJD9FbAPx9eBHfoYEU')
     });
 
     // Send subscription to your server
